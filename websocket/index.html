@@ -1,0 +1,33 @@
+<html>
+  <header>
+
+  </header>
+  <body>
+    <h1>Hello World</h1>
+    <script type="text/javascript">
+      let socket = new WebSocket("ws://localhost:8080/ws")
+
+      console.log("Socket connection ", socket)
+
+      socket.onopen = () => {
+        console.log("Succesfully connected")
+        socket.send("Clieent says Hi")
+      }
+
+      socket.onclose = (e) => {
+        console.log("Disconnected", e)
+      }
+
+      socket.onmessage = (msg) => {
+        console.log(msg)
+      }
+
+      socket.onerror = (error) => {
+        console.log("Socket error ", error)
+      }
+
+    </script>
+
+
+  </body>
+</html>
