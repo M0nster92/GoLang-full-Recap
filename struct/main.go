@@ -1,6 +1,8 @@
 package main
 
-import "GoLang-full-Recap/struct/employee"
+import (
+	"GoLang-full-recap/struct/employee"
+)
 
 func main() {
 	e := employee.Employee{
