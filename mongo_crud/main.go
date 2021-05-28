@@ -30,10 +30,12 @@ func main() {
 		AppDB = DBClient.Database(*collection)
 	}
 
-	cur, err := AppDB.Collection("cr").Find(context.TODO(), bson.M{})
-	if err != nil {
-		log.Fatal(err)
-	}
+	options := options.Find()
+
+	options.SetSort(bson.D{{"age", -1}})
+	options.SetLimit(1)
+
+	cur, err := AppDB.Collection("cr").Find(context.TODO(), bson.M{}, options)
 
 	/*var users []bson.M
 	if err = cur.All(context.TODO(), &users); err != nil {
@@ -63,7 +65,7 @@ func main() {
 		}
 	}
 
-	cur.Close(context.TODO())
+	//cur.Close(context.TODO())
 
 }
 
