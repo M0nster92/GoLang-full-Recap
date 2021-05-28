@@ -1,2 +1,2 @@
 # GoLang-full-Recap
-Beginner to Advance programming in Golang
+Personal Collection of go code for future reference 
